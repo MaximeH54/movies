@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MoviesController!{% endblock %}
+
+{% block body %}
+<style>
+.example-wrapper { font: 18px/1.5 sans-serif; text-align: center; }
+.title { padding-top: 7rem; font-size: 48px; text-shadow: -2px -2px #f00, 1px 1px #a00, -3px 0 4px #000; font-family:"Segoe print", Arial, Helvetica, sans-serif; color: #dd0000;}
+.card-footer { height: 70px; }
+.card-body { max-width: 260.5px; height: 179px; }
+.card { padding: 1rem; }
+.container { padding-right:0; padding-left: 0; }
+</style>
+
+
+
+<div class="example-wrapper">
+  <div class="title">
+    <h1>Liste films</h1>
+  </div>
+      <div class="container">
+        <div class="text-center">
+        <div class="row">
+
+          {% for movie in movies %}
+          <div class="col-lg-3">
+            <div class="card">
+              <img class="card-img-top" src="{{ movie.cover }}" alt="Card image cap">
+              <div class="card-body">
+                <h1 class="card-title"></h1>
+                  <a href="">{{ movie.name }}</a>
+                    <p class="card-text"></p>
+                    <div class="card-footer text-muted text-center mt-3">
+                    {% for category in movie.category %}
+                      {% if category %}
+                        {{ category.name}}
+                      {% endif %}
+                      {% else %}
+                        Non renseignée
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
