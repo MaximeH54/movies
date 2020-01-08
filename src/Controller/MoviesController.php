@@ -20,6 +20,11 @@ class MoviesController extends AbstractController
          ->getRepository(Movies::class)
          ->findBy([], ['name' => 'ASC'], 20);
 
+         return $this->render('movies/index.html.twig', [
+             'movies' => $movies,
+
+         ]);
+
 
     /**public function index()
     {
@@ -34,9 +39,6 @@ class MoviesController extends AbstractController
         ->getQuery()
         ->execute(); */
 
-        return $this->render('movies/index.html.twig', [
-            'movies' => $movies,
 
-        ]);
     }
 }
