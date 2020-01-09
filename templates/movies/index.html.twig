@@ -15,6 +15,9 @@
 
 
 <div class="example-wrapper">
+  <div class="mb-3 bg-gradient-primary text-white">
+      Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+  </div>
   <div class="title">
     <h1>Liste films</h1>
   </div>
@@ -28,7 +31,7 @@
               <img class="card-img-top" src="{{ movie.cover }}" alt="Card image cap">
               <div class="card-body">
                 <h1 class="card-title"></h1>
-                  <a href="">{{ movie.name }}</a>
+                  <a href="{{ path('movie_detail', { id: movie.id }) }}">{{ movie.name }}</a>
                     <p class="card-text"></p>
                     <div class="card-footer text-muted text-center mt-3">
                     {% for category in movie.category %}

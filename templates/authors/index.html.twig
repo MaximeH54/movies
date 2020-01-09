@@ -9,12 +9,28 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello! ✅</h1>
+  <div class="title">
+    <h1>Authors</h1>
+  </div>
+      <div class="container">
+        <div class="text-center">
+        <div class="row">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/hemmerle/Documents/project/movies/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/hemmerle/Documents/project/movies/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+          {% for author in authors %}
+          <div class="col-lg-3">
+            <div class="card">
+              <img class="card-img-top" src="{{ author.photo }}" alt="Card image cap">
+              <div class="card-body">
+                <h1 class="card-title"></h1>
+                  <a href="{{ path('authors', {id: author.id}) }}">{{ author.name }}</a>
+                    <p class="card-text"></p>
+                    <div class="card-footer text-muted text-center mt-3">                
+                </div>
+              </div>
+            </div>
+          </div>
+
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}

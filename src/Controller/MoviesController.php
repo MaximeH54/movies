@@ -13,22 +13,18 @@ class MoviesController extends AbstractController
     /**
      * @Route("/movies", name="movies")
      */
-
-     public function index()
-     {
-       $movies = $this->getDoctrine()
-         ->getRepository(Movies::class)
-         ->findBy([], ['name' => 'ASC'], 20);
-
-         return $this->render('movies/index.html.twig', [
-             'movies' => $movies,
-
-         ]);
-
-
-    /**public function index()
+    public function index()
     {
-      $movies = $this->getDoctrine()
+        $movies = $this->getDoctrine()
+         ->getRepository(Movies::class)
+         ->findBy([], ['name' => 'ASC'], 20, 0);
+
+        return $this->render('movies/index.html.twig', [
+          'movies' => $movies,
+        ]);
+
+
+      /**$movies = $this->getDoctrine()
         ->getRepository(Movies::class)
         ->createQueryBuilder('a')
         ->where('a.name LIKE :name')
@@ -38,7 +34,19 @@ class MoviesController extends AbstractController
         ->setFirstResult($offset)
         ->getQuery()
         ->execute(); */
+    }
 
+    /**
+     * @Route("/movie/{id}", name="movie_detail")
+     */
+    public function moviesDetail($id)
+    {
+        $movieDetail = $this->getDoctrine()
+        ->getRepository(Movies::class)
+        ->find($id);
 
+        return $this->render('movies/moviesDetail.html.twig', [
+            'movieDetail' => $movieDetail,
+        ]);
     }
 }

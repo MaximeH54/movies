@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+      .example-wrapper { color: #FFFFFF; }
+    </style>
+
+
+    {{ dump(movieDetail) }}
+  <div class="example-wrapper">
+    <div class="title">
+      <h1>Film détail</h1>
+    </div>
+        <div class="container">
+          <div class="text-center">
+            <div class="row">
+
+              <div class="col-lg-3">
+                <div class="card">
+                  <img class="card-img-top" src="{{ movieDetail.cover }}" alt="Card image cap">
+                  <div class="card-body">
+                    <h1 class="card-title"></h1>
+                      <a href="">{{ movieDetail.name }}</a>
+                        <p class="card-text"></p>
+                        <div class="card-footer text-muted text-center mt-3">
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}
