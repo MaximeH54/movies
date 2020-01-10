@@ -24,6 +24,7 @@ class MoviesController extends AbstractController
         ]);
 
 
+
       /**$movies = $this->getDoctrine()
         ->getRepository(Movies::class)
         ->createQueryBuilder('a')
